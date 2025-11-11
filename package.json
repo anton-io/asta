@@ -1,0 +1,30 @@
+{
+  "name": "asta-design-system",
+  "version": "1.0.1",
+  "description": "A minimal design system with monospace grid-based layouts",
+  "author": "Antonio Roldao",
+  "license": "MIT",
+  "scripts": {
+    "build:scss": "sass --no-source-map src/scss/asta.scss src/css/asta.css",
+    "build:css": "postcss src/css/asta.css -o src/css/asta.min.css --no-map --use autoprefixer cssnano",
+    "build:js": "terser src/js/asta.js -o src/js/asta.min.js --compress --mangle && terser src/js/examples.js -o src/js/examples.min.js --compress --mangle",
+    "build:dist": "node build-dist.js",
+    "build": "npm run build:scss && npm run build:css && npm run build:js && npm run build:dist",
+    "watch:scss": "sass --watch src/scss/asta.scss:src/css/asta.css --poll",
+    "watch:css": "postcss src/css/asta.css -o src/css/asta.min.css --no-map --use autoprefixer cssnano --watch",
+    "serve": "browser-sync start --server src --port 8181 --files 'src/css/*.css, src/js/*.js, src/*.html' --no-notify --no-open",
+    "dev": "concurrently \"npm run watch:scss\" \"npm run watch:css\" \"npm run serve\" --names \"SCSS,CSS,Server\" --prefix-colors \"blue,magenta,green\"",
+    "start": "npm run dev"
+  },
+  "devDependencies": {
+    "archiver": "^7.0.1",
+    "autoprefixer": "^10.4.16",
+    "browser-sync": "^3.0.2",
+    "concurrently": "^8.2.2",
+    "cssnano": "^6.0.1",
+    "postcss": "^8.4.31",
+    "postcss-cli": "^11.0.0",
+    "sass": "^1.69.5",
+    "terser": "^5.24.0"
+  }
+}

@@ -1,0 +1,91 @@
+/**
+ * Lists Component
+ *
+ * Unordered lists, ordered lists, and tree-style lists.
+ */
+
+ul, ol {
+  padding: 0;
+  margin: 0 0 var(--line-height);
+}
+
+/* Unordered Lists */
+ul {
+  list-style-type: square;
+  padding: 0 0 0 2ch;
+}
+
+/* Ordered Lists */
+ol {
+  list-style-type: none;
+  counter-reset: item;
+  padding: 0;
+}
+
+ol li:before {
+  content: counters(item, ".") ". ";
+  counter-increment: item;
+  font-weight: var(--font-weight-medium);
+}
+
+/* Nested Lists */
+ol ul,
+ol ol,
+ul ol,
+ul ul {
+  padding: 0 0 0 3ch;
+  margin: 0;
+}
+
+/* List Items */
+li {
+  margin: 0;
+  padding: 0;
+}
+
+li::marker {
+  line-height: 0;
+}
+
+/* Tree-Style Lists */
+.tree, .tree ul {
+  position: relative;
+  padding-left: 0;
+  list-style-type: none;
+  line-height: var(--line-height);
+}
+
+.tree ul {
+  margin: 0;
+}
+
+.tree ul li {
+  position: relative;
+  padding-left: 1.5ch;
+  margin-left: 1.5ch;
+  border-left: var(--border-thickness) solid var(--text-color);
+}
+
+.tree ul li:before {
+  position: absolute;
+  display: block;
+  top: calc(var(--line-height) / 2);
+  left: 0;
+  content: "";
+  width: 1ch;
+  border-bottom: var(--border-thickness) solid var(--text-color);
+}
+
+.tree ul li:last-child {
+  border-left: none;
+}
+
+.tree ul li:last-child:after {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  content: "";
+  height: calc(var(--line-height) / 2);
+  border-left: var(--border-thickness) solid var(--text-color);
+}

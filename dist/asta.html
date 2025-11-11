@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Asta Design System - Getting Started</title>
+
+  <!-- Asta CSS. -->
+  <link rel="stylesheet" href="css/asta.min.css">
+</head>
+<body>
+
+<header>
+  <!-- Dark/Light mode toggle. -->
+  <div style="float: right;">
+    <label class="toggle">
+      <input type="checkbox" class="theme-toggle">
+    </label>
+  </div>
+
+  <!-- Title. -->
+  <div style="display: flex; justify-content: space-between; align-items: center;">
+    <div>
+      <h1>Welcome to Asta</h1>
+      <p>A monospace UI framework where every element aligns to a character grid.</p>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section>
+    <h2>Getting Started</h2>
+    <p>This is a minimal template to help you get started with Asta. Edit this file to build your interface.</p>
+
+    <h3>What's Included</h3>
+    <ul>
+      <li><strong>CSS:</strong> asta.css and asta.min.css</li>
+      <li><strong>JavaScript:</strong> asta.js and asta.min.js</li>
+      <li><strong>Fonts:</strong> JetBrains Mono (woff2)</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Example Components</h3>
+
+    <h4>Button</h4>
+    <button onclick="openModal('example-modal')">Open Modal</button>
+
+    <h4>Form</h4>
+    <form>
+      <label for="name">Name</label>
+      <input type="text" id="name" placeholder="Enter your name">
+
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="your@email.com">
+
+      <button type="button">Submit</button>
+    </form>
+  </section>
+
+  <!--Simple grid example. -->
+  <section>
+    <h3>Grid System</h3>
+    <p>Use the 12-column grid system:</p>
+    <div class="grid">
+      <div class="four columns">
+        <p>Four columns</p>
+      </div>
+      <div class="four columns">
+        <p>Four columns</p>
+      </div>
+      <div class="four columns">
+        <p>Four columns</p>
+      </div>
+    </div>
+  </section>
+
+  <!--Simple ASCII ART example. -->
+  <section>
+    <h3>ASCII ART</h3>
+    <p>
+      <a href="https://en.wikipedia.org/wiki/Box-drawing_characters">Box-Drawing characters</a> are supported
+      for expressive drawings/plots/graphics.
+    </p>
+    <pre>
+          VROOM
+            ▲
+10│        . .
+ 9│      ..... .....
+ 8│    ......... .......
+ 7│  ............. .......
+ 6│.......................
+ 5│.......................
+ 4│.......................
+ 3│.......................
+ 2│.......................
+ 1│.......................
+ 0┼────────────────────────► ASTA
+    0 1 2 3 4 5 6 7 8 9 10
+   ▲▲▲ GAUSSIAN PEAK @ 5 ▲▲▲
+
+    </pre>
+  </section>
+</main>
+
+<!-- Modal Example. -->
+<div id="example-modal" class="modal">
+  <div class="modal-backdrop" onclick="closeModal('example-modal')"></div>
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4>Hello, Asta!</h4>
+      <button class="modal-close" onclick="closeModal('example-modal')">&times;</button>
+    </div>
+    <div class="modal-body">
+      <p>This is a modal dialog. Click outside or press ESC to close.</p>
+    </div>
+    <div class="modal-footer">
+      <button onclick="closeModal('example-modal')">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- Footer. -->
+<footer>
+  <p>&copy; 2025 Built with <a href="https://github.com/anton-io/asta">Asta Design System</a></p>
+</footer>
+
+<!-- Asta JavaScript. -->
+<script src="js/asta.min.js"></script>
+
+</body>
+</html>

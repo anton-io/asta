@@ -1,0 +1,80 @@
+/**
+ * CSS Variables - Design Tokens.
+ *
+ * Core design system variables for the monospace web.
+ * Includes support for automatic dark mode via prefers-color-scheme.
+ */
+
+:root {
+  /* Typography. */
+  --font-family: "JetBrains Mono", monospace;
+  --line-height: 1.20rem;
+
+  /* Spacing & Layout. */
+  --border-thickness: 2px;
+  --char-width: 1ch;  /* Character width for grid alignment. */
+
+  /* Spacing scale based on line-height. */
+  --spacing-half: calc(var(--line-height) / 2);
+  --spacing-1: var(--line-height);
+  --spacing-1-5: calc(var(--line-height) * 1.5);
+  --spacing-2: calc(var(--line-height) * 2);
+
+  /* Colors - Light Mode */
+  --text-color: #000;
+  --text-color-alt: #666;
+  --background-color: #fff;
+  --background-color-alt: #eee;
+
+  /* Font Weights */
+  --font-weight-normal: 500;
+  --font-weight-medium: 600;
+  --font-weight-bold: 800;
+
+  /* Base Font Settings */
+  font-family: var(--font-family);
+  font-optical-sizing: auto;
+  font-weight: var(--font-weight-normal);
+  font-style: normal;
+  font-variant-numeric: tabular-nums lining-nums;
+  font-size: 16px;
+}
+
+/* Theme color mixins */
+@mixin dark-theme-colors {
+  --text-color: #fff;
+  --text-color-alt: #aaa;
+  --background-color: #000;
+  --background-color-alt: #111;
+}
+
+@mixin light-theme-colors {
+  --text-color: #000;
+  --text-color-alt: #666;
+  --background-color: #fff;
+  --background-color-alt: #eee;
+}
+
+/* Dark Mode Support - System Preference. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    @include dark-theme-colors;
+  }
+}
+
+/* Dark Mode - Manual Override. */
+:root[data-theme="dark"] {
+  @include dark-theme-colors;
+}
+
+/* Light Mode - Manual Override */
+:root[data-theme="light"] {
+  @include light-theme-colors;
+}
+
+/* Mobile Adjustments */
+@media screen and (max-width: 480px) {
+  :root {
+    font-size: 14px;
+  }
+}

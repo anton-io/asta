@@ -1,0 +1,67 @@
+/**
+ * Base Styles.
+ *
+ * Foundation styles including layout, spacing rhythm, and box model.
+ */
+
+* {
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+/* Prevent all elements from causing horizontal overflow */
+img, video, iframe, table, pre, code {
+  max-width: 100%;
+}
+
+/* Vertical Rhythm - Consistent spacing between elements */
+* + * {
+  margin-top: var(--line-height);
+}
+
+html {
+  display: flex;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  flex-direction: column;
+  align-items: center;
+  background: var(--background-color);
+  color: var(--text-color);
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: var(--line-height) 2ch;
+  line-height: var(--line-height);
+  overflow-x: hidden;
+
+  /* Fallback for browsers without round() support */
+  max-width: 80ch;
+
+  /* Modern browsers: snap to character boundaries */
+  max-width: calc(min(80ch, round(down, 100%, var(--char-width))));
+}
+
+/* Toggles Container */
+.toggles-container {
+  display: flex;
+  align-items: center;
+  margin-top: 0;
+  width: 100%;
+}
+
+@media screen and (max-width: 480px) {
+  body {
+    padding: var(--line-height) 1ch;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  height: var(--line-height);
+}

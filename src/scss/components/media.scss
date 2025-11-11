@@ -1,0 +1,18 @@
+/**
+ * Media Component
+ *
+ * Images and videos that maintain grid alignment.
+ * Requires JavaScript (asta.js) for proper grid-aligned padding.
+ */
+
+img, video {
+  display: block;
+  width: 100%;
+  object-fit: contain;
+  overflow: hidden;
+}
+
+img {
+  font-style: italic;
+  color: var(--text-color-alt);
+}

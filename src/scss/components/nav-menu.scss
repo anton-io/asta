@@ -1,0 +1,122 @@
+/**
+ * Navigation Menu Component
+ *
+ * Mobile-friendly navigation with hamburger toggle.
+ */
+
+.nav-menu {
+  position: relative;
+  border: var(--border-thickness) solid var(--text-color);
+  padding: calc(var(--line-height) / 2) 1ch;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* Hamburger Toggle Button */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  width: calc(var(--line-height) * 1.5);
+  height: calc(var(--line-height) * 1.5);
+  position: relative;
+  margin-left: auto;
+}
+
+.nav-toggle:hover {
+  opacity: 0.7;
+}
+
+/* Hamburger Icon - Three Lines */
+.nav-toggle-icon,
+.nav-toggle-icon::before,
+.nav-toggle-icon::after {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--text-color);
+  position: absolute;
+  left: 0;
+  transition: transform 0.3s ease;
+}
+
+.nav-toggle-icon {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.nav-toggle-icon::before,
+.nav-toggle-icon::after {
+  content: '';
+}
+
+.nav-toggle-icon::before {
+  top: -6px;
+}
+
+.nav-toggle-icon::after {
+  top: 6px;
+}
+
+/* X icon when menu is open */
+.nav-menu.open .nav-toggle-icon {
+  background: transparent;
+}
+
+.nav-menu.open .nav-toggle-icon::before {
+  transform: rotate(45deg);
+  top: 0;
+}
+
+.nav-menu.open .nav-toggle-icon::after {
+  transform: rotate(-45deg);
+  top: 0;
+}
+
+/* Navigation List */
+.nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 2ch;
+  flex-wrap: wrap;
+}
+
+.nav-list li {
+  margin: 0;
+}
+
+.nav-list a {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+.nav-list a:hover {
+  text-decoration: underline;
+}
+
+/* Mobile: Show hamburger, hide menu by default */
+@media screen and (max-width: 768px) {
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-list {
+    display: none;
+    flex-direction: column;
+    gap: calc(var(--line-height) / 2);
+    margin-top: calc(var(--line-height) / 2);
+    padding-top: calc(var(--line-height) / 2);
+    border-top: var(--border-thickness) solid var(--text-color);
+    width: 100%;
+    flex-basis: 100%;
+  }
+
+  .nav-menu.open .nav-list {
+    display: flex;
+  }
+}

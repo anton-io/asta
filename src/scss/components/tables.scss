@@ -1,0 +1,73 @@
+/**
+ * Tables Component
+ *
+ * Grid-aligned tables with utility classes for column sizing.
+ */
+
+table {
+  position: relative;
+  top: calc(var(--line-height) / 2);
+  border-collapse: collapse;
+  margin: 0 0 calc(var(--line-height) * 2);
+
+  /* Fallback for browsers without round() support */
+  width: 100%;
+  max-width: 100%;
+
+  /* Modern browsers: snap to character boundaries */
+  width: calc(round(down, 100%, var(--char-width)));
+
+  /* Prevent overflow on mobile */
+  overflow-x: auto;
+  display: block;
+}
+
+@media screen and (max-width: 768px) {
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
+
+th, td {
+  border: var(--border-thickness) solid var(--text-color);
+  padding:
+    calc((var(--line-height) / 2))
+    calc(1ch - var(--border-thickness) / 2)
+    calc((var(--line-height) / 2) - (var(--border-thickness)))
+  ;
+  line-height: var(--line-height);
+  vertical-align: top;
+  text-align: left;
+}
+
+table tbody tr:first-child > * {
+  padding-top: calc((var(--line-height) / 2) - var(--border-thickness));
+}
+
+th {
+  font-weight: 700;
+}
+
+/* Utility Classes for Column Width */
+.width-min {
+  width: 0%;
+}
+
+.width-auto {
+  width: 100%;
+}
+
+/* Header Table Styling */
+.header {
+  margin-bottom: calc(var(--line-height) * 2);
+}
+
+.header h1 {
+  margin: 0;
+}
+
+.header tr td:last-child {
+  text-align: right;
+}

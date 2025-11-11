@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#000"/>
+
+  <!-- Grid pattern (subtle) -->
+  <defs>
+    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#1a1a1a" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+
+  <!-- Geometric Star -->
+  <g transform="translate(600, 200)">
+    <path d="M0 -80 L20 -20 L80 0 L20 20 L0 80 L-20 20 L-80 0 L-20 -20 Z" fill="#fff"/>
+  </g>
+
+  <!-- Title -->
+  <text x="600" y="340" font-family="JetBrains Mono, monospace" font-size="64" font-weight="800" fill="#fff" text-anchor="middle">
+    Asta Design System
+  </text>
+
+  <!-- Subtitle -->
+  <text x="600" y="400" font-family="JetBrains Mono, monospace" font-size="28" font-weight="500" fill="#888" text-anchor="middle">
+    Monospace Grid Framework
+  </text>
+
+  <!-- Tagline -->
+  <text x="600" y="480" font-family="JetBrains Mono, monospace" font-size="20" font-weight="400" fill="#666" text-anchor="middle">
+    Rhythmic. Intentional. Beautifully Precise.
+  </text>
+</svg>

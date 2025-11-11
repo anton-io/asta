@@ -1,0 +1,80 @@
+/**
+ * Theme Toggle Component.
+ *
+ * Toggle switch for light/dark mode with minimal SVG icons.
+ */
+
+.theme-toggle-label {
+  display: flex;
+  align-items: center;
+  gap: 1ch;
+  cursor: pointer;
+  user-select: none;
+  margin-left: auto;
+  width: fit-content;
+  flex-shrink: 0;
+}
+
+.theme-toggle {
+  position: relative;
+  display: inline-block;
+  width: 3ch;
+  height: calc(var(--line-height) * 1.5);
+  margin: 0;
+  padding: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+/* Remove focus outline but add subtle hover effect. */
+.theme-toggle:focus {
+  outline: none;
+}
+
+.theme-toggle:hover {
+  opacity: 0.7;
+}
+
+/* Icon container - applies to all states. */
+input[type=checkbox].theme-toggle:before,
+input[type=checkbox].theme-toggle:checked:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  /* Override forms.css checkbox default styling. */
+  width: calc(var(--line-height) * 1.0) !important;
+  height: calc(var(--line-height) * 1.0) !important;
+  background: none !important;
+
+  /* SVG icon styling. */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+/* DEFAULT: LIGHT MODE - Show sun icon (black). */
+input[type=checkbox].theme-toggle:before,
+input[type=checkbox].theme-toggle:checked:before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='12' cy='12' r='4'/%3E%3Cline x1='12' y1='1' x2='12' y2='4'/%3E%3Cline x1='12' y1='20' x2='12' y2='23'/%3E%3Cline x1='4.22' y1='4.22' x2='6.34' y2='6.34'/%3E%3Cline x1='17.66' y1='17.66' x2='19.78' y2='19.78'/%3E%3Cline x1='1' y1='12' x2='4' y2='12'/%3E%3Cline x1='20' y1='12' x2='23' y2='12'/%3E%3Cline x1='4.22' y1='19.78' x2='6.34' y2='17.66'/%3E%3Cline x1='17.66' y1='6.34' x2='19.78' y2='4.22'/%3E%3C/svg%3E") !important;
+}
+
+/* DARK MODE - Show moon icon (white). */
+:root[data-theme="dark"] input[type=checkbox].theme-toggle:before,
+:root[data-theme="dark"] input[type=checkbox].theme-toggle:checked:before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z'/%3E%3C/svg%3E") !important;
+}
+
+/* System preference dark mode - show moon icon (white). */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) input[type=checkbox].theme-toggle:before,
+  :root:not([data-theme="light"]) input[type=checkbox].theme-toggle:checked:before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z'/%3E%3C/svg%3E") !important;
+  }
+}

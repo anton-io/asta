@@ -1,0 +1,36 @@
+/**
+ * Debug Utilities
+ *
+ * Visual debugging tools to verify grid alignment.
+ * Activated by adding .debug class to body (via JavaScript).
+ */
+
+.debug .debug-grid {
+  --color: color-mix(in srgb, var(--text-color) 10%, var(--background-color) 90%);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  background-image:
+    repeating-linear-gradient(var(--color) 0 1px, transparent 1px 100%),
+    repeating-linear-gradient(90deg, var(--color) 0 1px, transparent 1px 100%);
+  background-size: 1ch var(--line-height);
+  margin: 0;
+}
+
+.debug .off-grid {
+  background: rgba(255, 0, 0, 0.1);
+}
+
+.debug-toggle-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 1ch;
+  cursor: pointer;
+  user-select: none;
+  margin: 0;
+  width: fit-content;
+  flex-shrink: 0;
+}

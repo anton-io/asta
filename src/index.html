@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ASTA Design System - Monospace Grid Framework</title>
+  <meta name="description"
+        content="A monospace UI framework where every element aligns to a character grid—creating interfaces that are
+         rhythmic, intentional, and beautifully precise.">
+
+  <!-- Open Graph / Facebook. -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="ASTA Design System - Monospace Grid Framework">
+  <meta property="og:description"
+        content="A monospace UI framework where every element aligns to a character grid—creating interfaces that are
+         rhythmic, intentional, and beautifully precise.">
+  <meta property="og:image" content="https://anton.io/asta/og-asta.svg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="https://anton.io/asta">
+  <meta property="og:site_name" content="ASTA Design System">
+
+  <!-- X/Twitter. -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ASTA Design System - Monospace Grid Framework">
+  <meta name="twitter:description"
+        content="A monospace UI framework where every element aligns to a character grid—creating interfaces that are
+         rhythmic, intentional, and beautifully precise.">
+  <meta name="twitter:image" content="https://anton.io/asta/og-asta.svg">
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="css/asta.css">
+</head>
+<body>
+<!-- Toggles Container. -->
+<div class="toggles-container">
+  <!-- Debug Grid Toggle -->
+  <label class="debug-toggle-label">
+    <input type="checkbox" class="debug-toggle"> Show grid
+  </label>
+
+  <!-- Theme Toggle. -->
+  <label class="theme-toggle-label">
+    <input type="checkbox" class="theme-toggle">
+  </label>
+</div>
+
+<!-- Navigation Menu. -->
+<nav class="nav-menu">
+  <button class="nav-toggle" aria-label="Toggle menu">
+    <span class="nav-toggle-icon"></span>
+  </button>
+  <ul class="nav-list">
+    <li><a href="#about">About</a></li>
+    <li><a href="#howto">How to Use</a></li>
+    <li><a href="#examples">Examples</a></li>
+    <li><a href="#footer">Links</a></li>
+  </ul>
+</nav>
+
+
+<!-- About. -->
+<hr>
+<h1 id="about">ASTA - DESIGN SYSTEM</h1>
+
+<p><b>ASTA</b> is a monospace UI framework where every element aligns to a character grid to create
+  interfaces that are rhythmic, intentional, and beautifully precise.</p>
+
+
+<p>Lightweight. Performant. Unapologetically minimal.
+  <b>ASTA</b> shines through simplicity.</p>
+
+
+<p><b>ASTA</b> means <i>love</i>, <i>bright star</i>, and sometimes <i>beautiful goddess</i>, a name that embodies the
+  elegance, clarity, and quiet strength at the heart of this system.</p>
+
+
+<!-- How to Use. -->
+<hr>
+<h1 id="howto">How to Use</h1>
+
+<p>
+  Getting started with ASTA is simple. Include the CSS, JavaScript, and fonts in your project. Download or clone the
+  repository from <a href="https://github.com/anton-io/asta" target="_blank">GitHub</a>,
+  or grab the core files you need directly from <a href="dist/asta.zip">here</a>.
+</p>
+
+<div class="example">
+  <div class="example-header">
+    <h4 class="example-title">Basic Setup</h4>
+    <button class="example-toggle"></button>
+  </div>
+  <div class="example-content">
+    <div class="example-demo">
+      <p>Add these lines to your HTML <code>&lt;head&gt;</code> section:</p>
+    </div>
+    <div class="example-code">
+      <pre><code>&lt;!-- Include ASTA CSS (includes font declarations) --&gt;
+&lt;link rel="stylesheet" href="css/asta.min.css"&gt;
+
+&lt;!-- Include ASTA JS for interactive components --&gt;
+&lt;script src="js/asta.min.js"&gt;&lt;/script&gt;</code></pre>
+    </div>
+  </div>
+</div>
+
+<div class="example">
+  <div class="example-header">
+    <h4 class="example-title">Required Files</h4>
+    <button class="example-toggle"></button>
+  </div>
+  <div class="example-content">
+    <div class="example-demo">
+      <p>Make sure you have the following directory structure:</p>
+    </div>
+    <div class="example-code">
+      <pre><code>your-project/
+├── css/
+│   └── asta.min.css
+├── js/
+│   └── asta.min.js
+└── fonts/
+    ├── JetBrainsMono-Regular.woff2
+    ├── JetBrainsMono-Medium.woff2
+    ├── JetBrainsMono-SemiBold.woff2
+    └── JetBrainsMono-ExtraBold.woff2</code></pre>
+    </div>
+  </div>
+</div>
+
+<div class="example">
+  <div class="example-header">
+    <h4 class="example-title">Using Components</h4>
+    <button class="example-toggle"></button>
+  </div>
+  <div class="example-content">
+    <div class="example-demo">
+      <p>All components work with semantic HTML. No utility classes needed:</p>
+      <input type="text" id="demo-input" placeholder="Type something...">
+      <button id="demo-button" style="margin-top: 5px">Show in Modal</button>
+
+      <div id="demo-modal" class="modal">
+        <div class="modal-backdrop" onclick="closeModal('demo-modal')"></div>
+        <div class="modal-content modal-info">
+          <div class="modal-header">
+            <h4>Your Message</h4>
+            <button class="modal-close" onclick="closeModal('demo-modal')">&times;</button>
+          </div>
+          <div class="modal-body">
+            <p id="demo-modal-text"></p>
+          </div>
+          <div class="modal-footer">
+            <button onclick="closeModal('demo-modal')">OK</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="example-code">
+      <pre><code>&lt;!-- Form inputs work out of the box --&gt;
+&lt;input type="text" id="demo-input" placeholder="Type something..."&gt;
+&lt;button id="demo-button" style="margin-top: 5px"&gt;Show in Modal&lt;/button&gt;
+
+&lt;!-- Modal component --&gt;
+&lt;div id="demo-modal" class="modal"&gt;
+  &lt;div class="modal-backdrop" onclick="closeModal('demo-modal')"&gt;&lt;/div&gt;
+  &lt;div class="modal-content modal-info"&gt;
+    &lt;div class="modal-header"&gt;
+      &lt;h4&gt;Your Message&lt;/h4&gt;
+      &lt;button class="modal-close" onclick="closeModal('demo-modal')"&gt;&times;&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class="modal-body"&gt;
+      &lt;p id="demo-modal-text"&gt;&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="modal-footer"&gt;
+      &lt;button onclick="closeModal('demo-modal')"&gt;OK&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+  </div>
+</div>
+
+<div class="example open">
+  <div class="example-header">
+    <h4 class="example-title">CSS Variables</h4>
+    <button class="example-toggle"></button>
+  </div>
+  <div class="example-content">
+    <div class="example-demo">
+      <p>Customize ASTA using CSS custom properties:</p>
+    </div>
+    <div class="example-code">
+      <pre><code>:root {
+  --font-family: 'JetBrains Mono', monospace;
+  --font-size: 16px;
+  --line-height: 1.5rem;
+  --char-width: 1ch;
+  --border-thickness: 2px;
+
+  /* Light theme (default) */
+  --background-color: #ffffff;
+  --text-color: #000000;
+}</code></pre>
+    </div>
+  </div>
+</div>
+
+<p>That's it! All HTML elements are styled automatically. Explore the examples below to see what's available.</p>
+
+<!-- Examples. -->
+<hr>
+<h1 id="examples">Examples</h1>
+
+
+<!-- Typography Examples. -->
+<h4 id="typography">Typography</h4>
+
+<div class="example">
+  <div class="example-header">
+    <h4 class="example-title">Heading Levels</h4>
+    <button class="example-toggle"></button>
+  </div>
+  <div class="example-content">
+    <div class="example-demo">
+      <h1 style="margin: 0 !important;">Heading 1</h1>
+      <h2 style="margin: 0 !important;">Heading 2</h2>
+      <h3 style="margin: 0 !important;">Heading 3</h3>
+      <h4 style="margin: 0 !important;">Heading 4</h4>
+      <h5 style="margin: 0 !important;">Heading 5</h5>
+    </div>
+    <div class="example-code">
+        <pre><code>&lt;h1&gt;Heading 1&lt;/h1&gt;
+&lt;h2&gt;Heading 2&lt;/h2&gt;
+&lt;h3&gt;Heading 3&lt;/h3&gt;
+&lt;h4&gt;Heading 4&lt;/h4&gt;
+&lt;h5&gt;Heading 5&lt;/h5&gt;</code></pre>
+    </div>
+  </div>
+</div>
+
+<div class="example">
+  <div class="example-header">
+    <h4 class="example-title">Paragraph with Inline Styles</h4>
+    <button class="example-toggle"></button>
+  </div>
+  <div class="example-content">
+    <div class="example-demo">
+      <p>This is a regular paragraph with <strong>bold text</strong> and <em>italic text</em>. You can also use <code>inline
+        code</code> within paragraphs.</p>
+    </div>
+    <div class="example-code">
+      <pre><code>&lt;p&gt;This is a regular paragraph with &lt;strong&gt;bold text&lt;/strong&gt; and &lt;em&gt;italic text&lt;/em&gt;.
+        You can also use &lt;code&gt;inline code&lt;/code&gt; within paragraphs.&lt;/p&gt;</code></pre>
+    </div>
+  </div>
+</div>
+
+<div class="example">
+  <div class="example-header">
+    <h4 class="example-title">Code Block</h4>
+    <button class="example-toggle"></button>
+  </div>
+  <div class="example-content">
+    <div class="example-demo">
+        <pre>// Code block example
+function hello() {
+  console.log("Hello, World!");
+}</pre>
+    </div>
+    <div class="example-code">
+        <pre><code>&lt;pre&gt;// Code block example
+function hello() {
+  console.log("Hello, World!");
+}&lt;/pre&gt;</code></pre>
+    </div>
+  </div>
+</div>
+
+<div class="example">
+  <div class="example-header">
+    <h4 class="example-title">Horizontal Rule</h4>
+    <button class="example-toggle"></button>
+  </div>
+  <div class="example-content">
+    <div class="example-demo">
+      <hr>
+    </div>
+    <div class="example-code">
+      <pre><code>&lt;hr&gt;</code></pre>
+    </div>
+  </div>
+</div>
+
+<!-- Lists. -->
+<h2 id="lists">Lists</h2>
+
+<div class="example">
+  <div class="example-header">
+    <h4 class="example-title">Unordered List</h4>
+    <button class="example-toggle"></button>
+  </div>
+  <div class="example-content">
+    <div class="example-demo">
+      <ul>
+        <li>First item</li>
+        <li>Second item</li>
+        <li>Third item</li>
+      </ul>
+    </div>
+    <div class="example-code">
+        <pre><code>&lt;ul&gt;
+  &lt;li&gt;First item&lt;/li&gt;
+  &lt;li&gt;Second item&lt;/li&gt;
+  &lt;li&gt;Third item&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+    </div>
+  </div>
+</div>
+
+<div class="example">
+  <div class="example-header">
+    <h4 class="example-title">Ordered List with Nesting</h4>
+    <button class="example-toggle"></button>
+  </div>
+  <div class="example-content">
+    <div class="example-demo">
+      <ol>
+        <li>First step</li>
+        <li>Second step
+          <ol>
+            <li>Nested item</li>
+            <li>Another nested item</li>
+          </ol>
+        </li>
+        <li>Third step</li>
+      </ol>
+    </div>
+    <div class="example-code">
+        <pre><code>&lt;ol&gt;
+  &lt;li&gt;First step&lt;/li&gt;
+  &lt;li&gt;Second step
+    &lt;ol&gt;
+      &lt;li&gt;Nested item&lt;/li&gt;
+      &lt;li&gt;Another nested item&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Third step&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+    </div>
+  </div>
+</div>
+
+<div class="example">
+  <div class="example-header">
+    <h4 class="example-title">Tree List</h4>
+    <button class="example-toggle"></button>
+  </div>
+  <div class="example-content">
+    <div class="example-demo">
+      <ul class="tree">
+        <li>Root
+          <ul>
+            <li>Branch A
+              <ul>
+                <li>Leaf A.1</li>
+                <li>Leaf A.2</li>
+                <li>Leaf A.3
+                  <ul>
+                    <li>Leaf A.3.1</li>
+                    <li>Leaf A.3.2</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li>Branch B</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="example-code">
+        <pre><code>&lt;ul class="tree"&gt;
+  &lt;li&gt;Root
+    &lt;ul&gt;
+      &lt;li&gt;Branch A
+        &lt;ul&gt;
+          &lt;li&gt;Leaf 1&lt;/li&gt;
+          &lt;li&gt;Leaf 2&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Branch B&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+    </div>
+  </div>
+</div>
+
+<!-- Tables. -->
+<hr>
+<h4 id="tables">Tables</h4>
+
+<div class="example">
+  <div class="example-header">
+    <h4 class="example-title">Table Example</h4>
+    <button class="example-toggle"></button>
+  </div>
+  <div class="example-content">
+    <div class="example-demo">
+      <table>
+        <thead>
+        <tr>
+          <th class="width-min">ID</th>
+          <th class="width-auto">Name</th>
+          <th>Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>001</td>
+          <td>Project Alpha</td>
+          <td>Active</td>
+        </tr>
+        <tr>
+          <td>002</td>
+          <td>Project Beta</td>
+          <td>Pending</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="example-code">
+        <pre><code>&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th class="width-min"&gt;ID&lt;/th&gt;
+      &lt;th class="width-auto"&gt;Name&lt;/th&gt;
+      &lt;th&gt;Status&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;001&lt;/td&gt;
+      &lt;td&gt;Project Alpha&lt;/td&gt;
+      &lt;td&gt;Active&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;002&lt;/td&gt;
+      &lt;td&gt;Project Beta&lt;/td&gt;
+      &lt;td&gt;Pending&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+    </div>
+  </div>
+</div>
+
+<!-- Forms. -->
+<hr>
+<h4 id="forms">Forms</h4>
+
+<div class="example">
+  <div class="example-header">
+    <h4 class="example-title">Form Example</h4>
+    <button class="example-toggle"></button>
+  </div>
+  <div class="example-content">
+    <div class="example-demo">
+      <form>
+        <label>
+          Text Input:
+          <input type="text" placeholder="Enter text...">
+        </label>
+
+        <label>
+          <input type="checkbox"> Checkbox option
+        </label>
+
+        <div class="radio-group">
+          <label>
+            <input type="radio" name="radio"> Radio option 1
+          </label>
+          <label>
+            <input type="radio" name="radio"> Radio option 2
+          </label>
+        </div>
+
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+      </form>
+    </div>
+    <div class="example-code">
+        <pre><code>&lt;form&gt;
+  &lt;label&gt;
+    Text Input:
+    &lt;input type="text" placeholder="Enter text..."&gt;
+  &lt;/label&gt;
+
+  &lt;label&gt;
+    &lt;input type="checkbox"&gt; Checkbox option
+  &lt;/label&gt;
+
+  &lt;div class="radio-group"&gt;
+    &lt;label&gt;
+      &lt;input type="radio" name="radio"&gt; Radio option 1
+    &lt;/label&gt;
+    &lt;label&gt;
+      &lt;input type="radio" name="radio"&gt; Radio option 2
+    &lt;/label&gt;
+  &lt;/div&gt;
+
+  &lt;button type="submit"&gt;Submit&lt;/button&gt;
+  &lt;button type="reset"&gt;Reset&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+    </div>
+  </div>
+</div>
+
+<!-- Grid. -->
+<hr>
+<h4 id="grid">Grid Layout</h4>
+<p>
+  A 12-column grid system using flexbox. Use <code>.grid</code> as the container and column classes
+  like <code>.six.columns</code>, <code>.four.columns</code>, etc. to control width.
+</p>
+
+<div class="example">
+  <div class="example-header">
+    <h4 class="example-title">Equal Columns (50/50)</h4>
+    <button class="example-toggle"></button>
+  </div>
+  <div class="example-content">
+    <div class="example-demo">
+      <div class="grid">
+        <div class="six columns"><input type="text" placeholder="First Name"></div>
+        <div class="six columns"><input type="text" placeholder="Last Name"></div>
+      </div>
+    </div>
+    <div class="example-code">
+        <pre><code>&lt;div class="grid"&gt;
+  &lt;div class="six columns"&gt;&lt;input type="text" placeholder="First Name"&gt;&lt;/div&gt;
+  &lt;div class="six columns"&gt;&lt;input type="text" placeholder="Last Name"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+  </div>
+</div>
+
+<div class="example">
+  <div class="example-header">
+    <h4 class="example-title">Three Equal Columns</h4>
+    <button class="example-toggle"></button>
+  </div>
+  <div class="example-content">
+    <div class="example-demo">
+      <div class="grid">
+        <div class="four columns"><button>Quarter 1</button></div>
+        <div class="four columns"><button>Quarter 2</button></div>
+        <div class="four columns"><button>Quarter 3</button></div>
+      </div>
+    </div>
+    <div class="example-code">
+        <pre><code>&lt;div class="grid"&gt;
+  &lt;div class="four columns"&gt;&lt;button&gt;Quarter 1&lt;/button&gt;&lt;/div&gt;
+  &lt;div class="four columns"&gt;&lt;button&gt;Quarter 2&lt;/button&gt;&lt;/div&gt;
+  &lt;div class="four columns"&gt;&lt;button&gt;Quarter 3&lt;/button&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+  </div>
+</div>
+
+<div class="example">
+  <div class="example-header">
+    <h4 class="example-title">Unbalanced Layout (6 + 3 + 3)</h4>
+    <button class="example-toggle"></button>
+  </div>
+  <div class="example-content">
+    <div class="example-demo">
+      <div class="grid">
+        <div class="six columns"><input type="text" placeholder="Main content (6 cols)"></div>
+        <div class="three columns"><button>Sidebar (3 cols)</button></div>
+        <div class="three columns"><button>Aside (3 cols)</button></div>
+      </div>
+    </div>
+    <div class="example-code">
+        <pre><code>&lt;div class="grid"&gt;
+  &lt;div class="six columns"&gt;&lt;input type="text" placeholder="Main content"&gt;&lt;/div&gt;
+  &lt;div class="three columns"&gt;&lt;button&gt;Sidebar&lt;/button&gt;&lt;/div&gt;
+  &lt;div class="three columns"&gt;&lt;button&gt;Aside&lt;/button&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+  </div>
+</div>
+
+<div class="example">
+  <div class="example-header">
+    <h4 class="example-title">Fractions and Offsets</h4>
+    <button class="example-toggle"></button>
+  </div>
+  <div class="example-content">
+    <div class="example-demo">
+      <div class="grid">
+        <div class="one-third column"><button>One-third</button></div>
+        <div class="two-thirds column"><button>Two-thirds</button></div>
+      </div>
+      <div class="grid">
+        <div class="three columns"><button>Three</button></div>
+        <div class="three columns offset-by-six"><button>Three (offset by 6)</button></div>
+      </div>
+    </div>
+    <div class="example-code">
+        <pre><code>&lt;!-- Using fractions --&gt;
+&lt;div class="grid"&gt;
+  &lt;div class="one-third column"&gt;&lt;button&gt;One-third&lt;/button&gt;&lt;/div&gt;
+  &lt;div class="two-thirds column"&gt;&lt;button&gt;Two-thirds&lt;/button&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Using offset --&gt;
+&lt;div class="grid"&gt;
+  &lt;div class="three columns"&gt;&lt;button&gt;Three&lt;/button&gt;&lt;/div&gt;
+  &lt;div class="three columns offset-by-six"&gt;&lt;button&gt;Three (offset by 6)&lt;/button&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+  </div>
+</div>
+
+<!-- Details/Summary. -->
+<hr>
+<h2 id="details">Collapsible Section</h2>
+
+<div class="example">
+  <div class="example-header">
+    <h4 class="example-title">Details/Summary Element</h4>
+    <button class="example-toggle"></button>
+  </div>
+  <div class="example-content">
+    <div class="example-demo">
+      <details>
+        <summary> Click to expand</summary>
+        <p>Hidden content that appears when you click the summary.</p>
+      </details>
+    </div>
+    <div class="example-code">
+        <pre><code>&lt;details&gt;
+  &lt;summary&gt; Click to expand&lt;/summary&gt;
+  &lt;p&gt;Hidden content that appears when you click the summary.&lt;/p&gt;
+&lt;/details&gt;</code></pre>
+    </div>
+  </div>
+</div>
+
+<!-- Media. -->
+<hr>
+<h4 id="media">Media</h4>
+
+<div class="example">
+  <div class="example-header">
+    <h4 class="example-title">Image with Caption</h4>
+    <button class="example-toggle"></button>
+  </div>
+  <div class="example-content">
+    <div class="example-demo">
+      <figure>
+        <img
+          src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='400'%3E%3Crect width='800' height='400' fill='%23eee'/%3E%3Ctext x='50%25' y='50%25' font-family='monospace' font-size='24' fill='%23666' text-anchor='middle' dy='.3em'%3E800 x 400 Placeholder Image%3C/text%3E%3C/svg%3E"
+          alt="Placeholder image">
+        <figcaption>Images automatically adjust padding to maintain grid alignment</figcaption>
+      </figure>
+    </div>
+    <div class="example-code">
+        <pre><code>&lt;figure&gt;
+  &lt;img src="image.jpg" alt="Description"&gt;
+  &lt;figcaption&gt;Images automatically adjust padding to maintain grid alignment&lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+    </div>
+  </div>
+</div>
+
+<div class="example">
+  <div class="example-header">
+    <h4 class="example-title">Video with Caption</h4>
+    <button class="example-toggle"></button>
+  </div>
+  <div class="example-content">
+    <div class="example-demo">
+      <figure>
+        <video
+          poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450'%3E%3Crect width='800' height='450' fill='%23222'/%3E%3Ctext x='50%25' y='45%25' font-family='monospace' font-size='32' fill='%23fff' text-anchor='middle' dy='.3em'%3E▶ Video%3C/text%3E%3Ctext x='50%25' y='55%25' font-family='monospace' font-size='18' fill='%23aaa' text-anchor='middle' dy='.3em'%3E800 x 450%3C/text%3E%3C/svg%3E"
+          controls>
+          <source src="#" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <figcaption>Videos also maintain grid alignment with automatic padding adjustment</figcaption>
+      </figure>
+    </div>
+    <div class="example-code">
+        <pre><code>&lt;figure&gt;
+  &lt;video poster="thumbnail.jpg" controls&gt;
+    &lt;source src="video.mp4" type="video/mp4"&gt;
+    Your browser does not support the video tag.
+  &lt;/video&gt;
+  &lt;figcaption&gt;Videos also maintain grid alignment with automatic padding adjustment&lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+    </div>
+  </div>
+</div>
+
+<!-- ASCII Art. -->
+<hr>
+<h2 id="ascii-art">ASCII Art</h2>
+
+<div class="example">
+  <div class="example-header">
+    <h4 class="example-title">Retro Computer Art</h4>
+    <button class="example-toggle"></button>
+  </div>
+  <div class="example-content">
+    <div class="example-demo">
+        <pre>
+╔═══════════════════════════════════════╗
+║                                       ║
+║        ░▒▓█   A S T A   █▓▒░          ║
+║                                       ║
+║  ┌─────────────────────────────────┐  ║
+║  │ ▓▓▓▒▒░░ DESIGN SYSTEM ░░▒▒▓▓▓   │  ║
+║  │   ░░ Monospace Grid Magic ░░    │  ║
+║  └─────────────────────────────────┘  ║
+║                                       ║
+║    █▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█    ║
+║    █  ☇ Fast   ☼ Clean   ✦ Pure  █    ║
+║    █▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█    ║
+║                                       ║
+╚═══════════════════════════════════════╝
+        </pre>
+    </div>
+    <div class="example-code">
+        <pre><code>&lt;pre&gt;
+╔═══════════════════════════════════════╗
+║                                       ║
+║        ░▒▓█   A S T A   █▓▒░          ║
+║                                       ║
+║  ┌─────────────────────────────────┐  ║
+║  │ ▓▓▓▒▒░░ DESIGN SYSTEM ░░▒▒▓▓▓   │  ║
+║  │   ░░ Monospace Grid Magic ░░    │  ║
+║  └─────────────────────────────────┘  ║
+║                                       ║
+║    █▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█    ║
+║    █  ☇ Fast   ☼ Clean   ✦ Pure  █    ║
+║    █▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█    ║
+║                                       ║
+╚═══════════════════════════════════════╝
+&lt;/pre&gt;</code></pre>
+    </div>
+  </div>
+</div>
+
+<!-- Modals. -->
+<hr>
+<h2 id="modals">Modals</h2>
+
+<div class="example">
+  <div class="example-header">
+    <h4 class="example-title">Information Modal</h4>
+    <button class="example-toggle"></button>
+  </div>
+  <div class="example-content">
+    <div class="example-demo">
+      <button onclick="openModal('info-modal')">Show Info Modal</button>
+
+      <div id="info-modal" class="modal">
+        <div class="modal-backdrop" onclick="closeModal('info-modal')"></div>
+        <div class="modal-content modal-info">
+          <div class="modal-header">
+            <h4>Information</h4>
+            <button class="modal-close" onclick="closeModal('info-modal')">&times;</button>
+          </div>
+          <div class="modal-body">
+            <p>This is an informational message. It provides helpful details to the user.</p>
+          </div>
+          <div class="modal-footer">
+            <button onclick="closeModal('info-modal')">OK</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="example-code">
+        <pre><code>&lt;button onclick="openModal('info-modal')"&gt;Show Info Modal&lt;/button&gt;
+
+&lt;div id="info-modal" class="modal"&gt;
+  &lt;div class="modal-backdrop" onclick="closeModal('info-modal')"&gt;&lt;/div&gt;
+  &lt;div class="modal-content modal-info"&gt;
+    &lt;div class="modal-header"&gt;
+      &lt;h4&gt;Information&lt;/h4&gt;
+      &lt;button class="modal-close" onclick="closeModal('info-modal')"&gt;&times;&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class="modal-body"&gt;
+      &lt;p&gt;This is an informational message.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="modal-footer"&gt;
+      &lt;button onclick="closeModal('info-modal')"&gt;OK&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+  </div>
+</div>
+
+<div class="example">
+  <div class="example-header">
+    <h4 class="example-title">Confirmation Modal</h4>
+    <button class="example-toggle"></button>
+  </div>
+  <div class="example-content">
+    <div class="example-demo">
+      <button onclick="openModal('confirm-modal')">Show Confirmation Modal</button>
+
+      <div id="confirm-modal" class="modal">
+        <div class="modal-backdrop" onclick="closeModal('confirm-modal')"></div>
+        <div class="modal-content modal-confirm">
+          <div class="modal-header">
+            <h4>Confirm Action</h4>
+            <button class="modal-close" onclick="closeModal('confirm-modal')">&times;</button>
+          </div>
+          <div class="modal-body">
+            <p>Are you sure you want to proceed with this action?</p>
+          </div>
+          <div class="modal-footer">
+            <button onclick="closeModal('confirm-modal')">Cancel</button>
+            <button onclick="closeModal('confirm-modal')">Confirm</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="example-code">
+        <pre><code>&lt;button onclick="openModal('confirm-modal')"&gt;Show Confirmation Modal&lt;/button&gt;
+
+&lt;div id="confirm-modal" class="modal"&gt;
+  &lt;div class="modal-backdrop" onclick="closeModal('confirm-modal')"&gt;&lt;/div&gt;
+  &lt;div class="modal-content modal-confirm"&gt;
+    &lt;div class="modal-header"&gt;
+      &lt;h4&gt;Confirm Action&lt;/h4&gt;
+      &lt;button class="modal-close" onclick="closeModal('confirm-modal')"&gt;&times;&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class="modal-body"&gt;
+      &lt;p&gt;Are you sure you want to proceed?&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="modal-footer"&gt;
+      &lt;button onclick="closeModal('confirm-modal')"&gt;Cancel&lt;/button&gt;
+      &lt;button onclick="closeModal('confirm-modal')"&gt;Confirm&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+  </div>
+</div>
+
+<div class="example">
+  <div class="example-header">
+    <h4 class="example-title">Error Modal</h4>
+    <button class="example-toggle"></button>
+  </div>
+  <div class="example-content">
+    <div class="example-demo">
+      <button onclick="openModal('error-modal')">Show Error Modal</button>
+
+      <div id="error-modal" class="modal">
+        <div class="modal-backdrop" onclick="closeModal('error-modal')"></div>
+        <div class="modal-content modal-error">
+          <div class="modal-header">
+            <h4>Error</h4>
+            <button class="modal-close" onclick="closeModal('error-modal')">&times;</button>
+          </div>
+          <div class="modal-body">
+            <p>An error has occurred. Please try again later.</p>
+          </div>
+          <div class="modal-footer">
+            <button onclick="closeModal('error-modal')">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="example-code">
+        <pre><code>&lt;button onclick="openModal('error-modal')"&gt;Show Error Modal&lt;/button&gt;
+
+&lt;div id="error-modal" class="modal"&gt;
+  &lt;div class="modal-backdrop" onclick="closeModal('error-modal')"&gt;&lt;/div&gt;
+  &lt;div class="modal-content modal-error"&gt;
+    &lt;div class="modal-header"&gt;
+      &lt;h4&gt;Error&lt;/h4&gt;
+      &lt;button class="modal-close" onclick="closeModal('error-modal')"&gt;&times;&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class="modal-body"&gt;
+      &lt;p&gt;An error has occurred.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="modal-footer"&gt;
+      &lt;button onclick="closeModal('error-modal')"&gt;Close&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+  </div>
+</div>
+
+<!-- Footer. -->
+<hr>
+<h2 id="footer">Footer</h2>
+
+<div class="example">
+  <div class="example-header">
+    <h4 class="example-title">Basic Footer</h4>
+    <button class="example-toggle"></button>
+  </div>
+  <div class="example-content">
+    <div class="example-demo">
+      <footer>
+        <p>&copy; 2025 All rights reserved</p>
+        <p>
+          <a href="#about">About</a> |
+          <a href="https://github.com/anton-io/asta">GitHub</a> |
+          <a href="https://anton.io">Anton.io</a>
+          <a href="https://x.com/roldao">@Roldao</a>
+        </p>
+      </footer>
+    </div>
+    <div class="example-code">
+        <pre><code>&lt;footer&gt;
+  &lt;p&gt;&amp;copy; 2025 All rights reserved&lt;/p&gt;
+  &lt;p&gt;
+    &lt;a href="#about"&gt;About&lt;/a&gt; |
+    &lt;a href="https://github.com/anton-io/asta"&gt;GitHub&lt;/a&gt; |
+    &lt;a href="https://anton.io"&gt;Anton.io&lt;/a&gt;
+    &lt;a href="https://x.com/roldao"&gt;@Roldao&lt;/a&gt;
+  &lt;/p&gt;
+&lt;/footer&gt;</code></pre>
+    </div>
+  </div>
+</div>
+
+<!-- Debug Grid (invisible by default). -->
+<div class="debug-grid"></div>
+
+<!-- ASTA core framework. -->
+<script src="js/asta.js"></script>
+
+<!-- Examples page functionality (only for documentation). -->
+<script src="js/examples.js"></script>
+</body>
+</html>

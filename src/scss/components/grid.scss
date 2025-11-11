@@ -1,0 +1,70 @@
+/**
+ * Grid Component
+ *
+ * 12-column grid system using flexbox with gap.
+ * Use with .grid container and .column/.columns classes.
+ */
+
+@use "sass:list";
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1ch;
+  margin-bottom: var(--line-height);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.column,
+.columns {
+  box-sizing: border-box;
+  flex-grow: 0;
+  flex-shrink: 0;
+  margin-top: 0;
+}
+
+/* Ensure children fill their column containers */
+.column > *,
+.columns > * {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Generate column widths using SCSS loop */
+$column-names: (
+  'one': 1, 'two': 2, 'three': 3, 'four': 4, 'five': 5, 'six': 6,
+  'seven': 7, 'eight': 8, 'nine': 9, 'ten': 10, 'eleven': 11, 'twelve': 12
+);
+
+@each $name, $cols in $column-names {
+  .#{$name}.column,
+  .#{$name}.columns {
+    @if $cols == 12 {
+      flex-basis: 100%;
+    } @else {
+      flex-basis: calc((100% - 11ch) / 12 * #{$cols} + #{$cols - 1}ch);
+    }
+  }
+}
+
+/* Fraction-based columns */
+.one-third.column    { flex-basis: calc((100% - 11ch) / 3); }
+.two-thirds.column   { flex-basis: calc((100% - 11ch) / 3 * 2 + 1ch); }
+.one-half.column     { flex-basis: calc((100% - 11ch) / 2); }
+
+/* Generate offsets using SCSS loop */
+@for $i from 1 through 11 {
+  .offset-by-#{list.nth(('one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven'), $i)}.column,
+  .offset-by-#{list.nth(('one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven'), $i)}.columns {
+    margin-left: calc((100% - 11ch) / 12 * #{$i} + #{$i + 1}ch);
+  }
+}
+
+/* Fraction offsets */
+.offset-by-one-third.column,
+.offset-by-one-third.columns    { margin-left: calc((100% - 11ch) / 3 + 1ch); }
+.offset-by-two-thirds.column,
+.offset-by-two-thirds.columns   { margin-left: calc((100% - 11ch) / 3 * 2 + 2ch); }
+.offset-by-one-half.column,
+.offset-by-one-half.columns     { margin-left: calc((100% - 11ch) / 2 + 1ch); }

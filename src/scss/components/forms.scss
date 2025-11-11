@@ -1,0 +1,125 @@
+/**
+ * Forms Component
+ *
+ * Inputs, buttons, labels, checkboxes, and radio buttons aligned to the grid.
+ */
+
+input, button, textarea {
+  border: var(--border-thickness) solid var(--text-color);
+  padding:
+    calc(var(--line-height) / 2 - var(--border-thickness))
+    calc(1ch - var(--border-thickness));
+  margin: 0;
+  font: inherit;
+  height: calc(var(--line-height) * 2);
+  width: auto;
+  overflow: visible;
+  background: var(--background-color);
+  color: var(--text-color);
+  line-height: normal;
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+  -webkit-appearance: none;
+}
+
+/* Checkboxes and Radio Buttons */
+input[type=checkbox],
+input[type=radio] {
+  display: inline-grid;
+  place-content: center;
+  vertical-align: top;
+  width: 2ch;
+  height: var(--line-height);
+  cursor: pointer;
+}
+
+input[type=checkbox]:checked:before,
+input[type=radio]:checked:before {
+  content: "";
+  width: 1ch;
+  height: calc(var(--line-height) / 2);
+  background: var(--text-color);
+}
+
+input[type=radio],
+input[type=radio]:before {
+  border-radius: 100%;
+}
+
+/* Focus States */
+button:focus, input:focus {
+  --border-thickness: 3px;
+  outline: none;
+}
+
+/* Text Input */
+input {
+  width: calc(round(down, 100%, 1ch));
+}
+
+::placeholder {
+  color: var(--text-color-alt);
+  opacity: 1;
+}
+
+::-ms-input-placeholder {
+  color: var(--text-color-alt);
+}
+
+/* Buttons */
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+button {
+  text-transform: uppercase;
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--background-color-alt);
+}
+
+button:active {
+  transform: translate(2px, 2px);
+}
+
+/* Labels */
+label {
+  display: block;
+  width: calc(round(down, 100%, 1ch));
+  height: auto;
+  line-height: var(--line-height);
+  font-weight: var(--font-weight-medium);
+  margin: 0;
+}
+
+label input {
+  width: 100%;
+}
+
+/* Add extra vertical spacing between form elements */
+form > label,
+form > button,
+form > .radio-group {
+  margin-top: calc(var(--line-height) * 1.5);
+}
+
+form > label:first-child,
+form > button:first-of-type {
+  margin-top: var(--line-height);
+}
+
+/* Radio Group - Display radio buttons inline */
+.radio-group {
+  display: flex;
+  gap: 2ch;
+  flex-wrap: wrap;
+}
+
+.radio-group label {
+  margin-top: 0;
+  width: auto;
+}

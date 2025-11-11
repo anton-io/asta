@@ -1,0 +1,140 @@
+/**
+ * Typography Component.
+ *
+ * Styles for headings, paragraphs, links, emphasis, and code.
+ */
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: var(--font-weight-bold);
+  margin: var(--spacing-2) 0;
+  text-transform: uppercase;
+  line-height: calc(2 * var(--line-height));
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1.35rem;
+}
+
+h4 {
+  font-size: 1.2rem;
+}
+
+h5 {
+  font-size: 1.1rem;
+}
+
+/* Paragraphs. */
+p {
+  margin-bottom: var(--line-height);
+  word-break: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+/* Links */
+a {
+  text-decoration-thickness: var(--border-thickness);
+}
+
+a:link, a:visited {
+  color: var(--text-color);
+}
+
+/* Text Emphasis. */
+strong, b {
+  font-weight: var(--font-weight-bold);
+}
+
+em, i {
+  font-style: italic;
+}
+
+/* Subscript */
+sub {
+  position: relative;
+  display: inline-block;
+  margin: 0;
+  vertical-align: sub;
+  line-height: 0;
+  width: calc(1ch / 0.75);
+  font-size: .75rem;
+}
+
+/* Code */
+pre, code {
+  font-family: var(--font-family);
+}
+
+code {
+  font-weight: var(--font-weight-medium);
+}
+
+pre {
+  white-space: pre;
+  overflow-x: auto;
+  margin: var(--line-height) 0;
+  overflow-y: hidden;
+  max-width: 100%;
+}
+
+@media screen and (max-width: 480px) {
+  pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-x: auto;
+  }
+}
+
+figure pre {
+  margin: 0;
+}
+
+/* Figure Captions. */
+figure {
+  margin: calc(var(--line-height) * 2) 3ch;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+@media screen and (max-width: 480px) {
+  figure {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+figcaption {
+  display: block;
+  font-style: italic;
+  margin-top: var(--line-height);
+}
+
+/* Horizontal Rule. */
+hr {
+  position: relative;
+  display: block;
+  height: var(--line-height);
+  margin: calc(var(--line-height) * 1.5) 0;
+  border: none;
+  color: var(--text-color);
+}
+
+hr:after {
+  display: block;
+  content: "";
+  position: absolute;
+  top: calc(var(--line-height) / 2 - var(--border-thickness));
+  left: 0;
+  width: 100%;
+  border-top: calc(var(--border-thickness) * 3) double var(--text-color);
+  height: 0;
+}

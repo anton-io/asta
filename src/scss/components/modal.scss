@@ -1,0 +1,115 @@
+/**
+ * Modal Component
+ *
+ * Dialog boxes for information, confirmation, and error messages.
+ */
+
+/* Modal Container - Hidden by default */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal.open {
+  display: flex;
+}
+
+/* Backdrop/Overlay */
+.modal-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+
+/* Modal Content Box */
+.modal-content {
+  position: relative;
+  background: var(--background-color);
+  border: calc(var(--border-thickness) * 2) solid var(--text-color);
+  padding: var(--line-height) 2ch;
+  max-width: 60ch;
+  width: 90%;
+  z-index: 1001;
+  box-shadow: 4px 4px 0 var(--text-color);
+}
+
+/* Modal Header */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0;
+  margin-bottom: var(--line-height);
+}
+
+.modal-header h4 {
+  margin: 0;
+}
+
+/* Close Button */
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+  width: auto;
+  height: auto;
+  min-width: 2ch;
+  text-align: center;
+}
+
+.modal-close:hover {
+  opacity: 0.7;
+  background: none;
+}
+
+/* Modal Body */
+.modal-body {
+  margin-bottom: var(--line-height);
+}
+
+.modal-body p {
+  margin: 0;
+}
+
+/* Modal Footer */
+.modal-footer {
+  display: flex;
+  gap: 1ch;
+  justify-content: flex-end;
+  margin-top: var(--line-height);
+}
+
+.modal-footer button {
+  margin-top: 0;
+}
+
+/* Modal Type Variations */
+.modal-info {
+  border-color: var(--text-color);
+}
+
+.modal-confirm .modal-header h4::before {
+  content: "⚠ ";
+}
+
+.modal-error {
+  border-color: var(--text-color);
+}
+
+.modal-error .modal-header h4::before {
+  content: "✖ ";
+}

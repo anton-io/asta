@@ -1,0 +1,27 @@
+# Ignore these files and directories:
+.idea
+
+# Dependencies.
+node_modules/
+
+# Build outputs.
+src/css/
+src/js/asta.min.js
+src/js/examples.min.js
+
+# Dist directory (keep asta.html, ignore generated files)
+dist/css/
+dist/js/
+dist/fonts/
+
+# Logs.
+*.log
+npm-debug.log*
+
+# OS files.
+.DS_Store
+Thumbs.db
+
+# AI Miscelaneuous.
+.claude
+CLAUDE.md
