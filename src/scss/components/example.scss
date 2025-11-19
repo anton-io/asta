@@ -32,14 +32,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: transform 0.2s ease;
 }
 
 .example-toggle:hover {
-  opacity: 0.7;
+  transform: scale(1.15);
+  background: unset;
 }
 
 .example-toggle:active {
-  opacity: 0.5;
+  transform: none;
 }
 
 .example-toggle svg {

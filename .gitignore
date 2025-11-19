@@ -25,3 +25,7 @@ Thumbs.db
 # AI Miscelaneuous.
 .claude
 CLAUDE.md
+
+# Custom deployment
+_deploy
+_dev
